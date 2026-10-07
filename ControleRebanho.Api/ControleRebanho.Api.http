@@ -1,0 +1,6 @@
+@ControleRebanho.Api_HostAddress = http://localhost:5234
+
+GET {{ControleRebanho.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
