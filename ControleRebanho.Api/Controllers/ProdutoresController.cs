@@ -33,6 +33,9 @@ namespace ControleRebanho.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Produtor>> Criar(Produtor produtor)
         {
+            var cpfJaExiste = await _context.Produtores.AnyAsync(p => p.Cpf == produtor.Cpf);
+            if (cpfJaExiste) return Conflict("Já existe um produtor com este CPF.");
+
             _context.Produtores.Add(produtor);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(BuscarPorId), new { id = produtor.Id }, produtor);

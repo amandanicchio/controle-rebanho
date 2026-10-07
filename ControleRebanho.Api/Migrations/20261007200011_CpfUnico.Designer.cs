@@ -3,6 +3,7 @@ using ControleRebanho.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleRebanho.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20261007200011_CpfUnico")]
+    partial class CpfUnico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,43 +49,6 @@ namespace ControleRebanho.Api.Migrations
                         .IsUnique();
 
                     b.ToTable("Produtores");
-                });
-
-            modelBuilder.Entity("ControleRebanho.Api.Models.Propriedade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Municipio")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProdutorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProdutorId");
-
-                    b.ToTable("Propriedades");
-                });
-
-            modelBuilder.Entity("ControleRebanho.Api.Models.Propriedade", b =>
-                {
-                    b.HasOne("ControleRebanho.Api.Models.Produtor", "Produtor")
-                        .WithMany()
-                        .HasForeignKey("ProdutorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Produtor");
                 });
 #pragma warning restore 612, 618
         }
