@@ -1,0 +1,20 @@
+<Window x:Class="ControleRebanho.Views.MenuPecuaristaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema de Controle de Rebanho" Width="560" SizeToContent="Height"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <StackPanel Margin="20">
+        <DockPanel Margin="0,0,0,14">
+            <Button DockPanel.Dock="Right" Content="Sair" MinWidth="70" Click="Sair_Click"/>
+            <TextBlock x:Name="TextoSaudacao" FontSize="15" VerticalAlignment="Center"/>
+        </DockPanel>
+
+        <UniformGrid Columns="2">
+            <Button Content="Minha fazenda" Style="{StaticResource BotaoMenu}" Click="MinhaFazenda_Click"/>
+            <Button Content="Animais" Style="{StaticResource BotaoMenu}" Click="Animais_Click"/>
+            <Button Content="Saldo do rebanho" Style="{StaticResource BotaoMenu}" Click="Saldo_Click"/>
+            <Button Content="Extrato de movimentação" Style="{StaticResource BotaoMenu}" Click="Extrato_Click"/>
+            <Button Content="Ficha sanitária" Style="{StaticResource BotaoMenu}" Click="FichaSanitaria_Click"/>
+        </UniformGrid>
+    </StackPanel>
+</Window>

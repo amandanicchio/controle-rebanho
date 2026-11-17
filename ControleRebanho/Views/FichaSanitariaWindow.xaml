@@ -1,0 +1,54 @@
+<Window x:Class="ControleRebanho.Views.FichaSanitariaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ficha sanitária" Width="860" Height="600"
+        WindowStartupLocation="CenterOwner">
+    <DockPanel Margin="20">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Animal:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <ComboBox x:Name="ComboAnimal" Width="160" DisplayMemberPath="Brinco" Margin="0"
+                      SelectionChanged="Animal_SelectionChanged"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,10,0,0">
+            <Button Content="Voltar" IsCancel="True"/>
+            <TextBlock Style="{StaticResource Rotulo}" VerticalAlignment="Center" Margin="12,0,0,0"
+                       Text="Vacinas e exames são registrados pelo veterinário."/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="TextoTitulo" Text="Ficha sanitária" Style="{StaticResource TituloTela}" Margin="0"/>
+            <TextBlock x:Name="TextoResumo" Grid.Row="1" Margin="0,4,0,0"/>
+
+            <TextBlock Grid.Row="2" Text="Vacinas / vermífugos" Style="{StaticResource Subtitulo}"/>
+            <DataGrid x:Name="GradeVacinacoes" Grid.Row="3">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Data" Binding="{Binding Data}" Width="100"/>
+                    <DataGridTextColumn Header="Produto" Binding="{Binding Produto}" Width="130"/>
+                    <DataGridTextColumn Header="Doença" Binding="{Binding Doenca}" Width="170"/>
+                    <DataGridTextColumn Header="Dose" Binding="{Binding Dose}" Width="110"/>
+                    <DataGridTextColumn Header="Veterinário" Binding="{Binding Veterinario}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <TextBlock Grid.Row="4" Text="Exames" Style="{StaticResource Subtitulo}"/>
+            <DataGrid x:Name="GradeExames" Grid.Row="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Coleta" Binding="{Binding Coleta}" Width="100"/>
+                    <DataGridTextColumn Header="Exame" Binding="{Binding Exame}" Width="130"/>
+                    <DataGridTextColumn Header="Resultado" Binding="{Binding Resultado}" Width="130"/>
+                    <DataGridTextColumn Header="Veterinário" Binding="{Binding Veterinario}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Window>

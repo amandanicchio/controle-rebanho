@@ -1,0 +1,56 @@
+<Window x:Class="ControleRebanho.Views.AnimaisWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Animais" Width="860" Height="560"
+        WindowStartupLocation="CenterOwner">
+    <DockPanel Margin="20">
+        <TextBlock DockPanel.Dock="Top" Text="Animais" Style="{StaticResource TituloTela}"/>
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <StackPanel Width="150" Margin="0,0,12,0">
+                <TextBlock Text="Brinco" Style="{StaticResource Rotulo}"/>
+                <TextBox x:Name="CampoBrinco"/>
+            </StackPanel>
+            <StackPanel Width="120" Margin="0,0,12,0">
+                <TextBlock Text="Sexo" Style="{StaticResource Rotulo}"/>
+                <ComboBox x:Name="ComboSexo" SelectedIndex="0">
+                    <ComboBoxItem Content="Todos" Tag=""/>
+                    <ComboBoxItem Content="Macho" Tag="MACHO"/>
+                    <ComboBoxItem Content="Fêmea" Tag="FEMEA"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Width="120" Margin="0,0,12,0">
+                <TextBlock Text="Situação" Style="{StaticResource Rotulo}"/>
+                <ComboBox x:Name="ComboSituacao" SelectedIndex="0">
+                    <ComboBoxItem Content="Ativos" Tag="Ativos"/>
+                    <ComboBoxItem Content="Saídos" Tag="Saidos"/>
+                    <ComboBoxItem Content="Todos" Tag="Todos"/>
+                </ComboBox>
+            </StackPanel>
+            <Button Content="Buscar" VerticalAlignment="Center" IsDefault="True" Click="Buscar_Click"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,10,0,0">
+            <Button Content="+ Novo animal" Click="Novo_Click"/>
+            <Button Content="Editar" Click="Editar_Click"/>
+            <Button Content="Registrar saída" Style="{StaticResource BotaoPerigo}" Click="RegistrarSaida_Click"/>
+            <Button Content="Ficha sanitária" Click="FichaSanitaria_Click"/>
+            <Button Content="Voltar" IsCancel="True" Click="Voltar_Click"/>
+        </StackPanel>
+
+        <TextBlock DockPanel.Dock="Bottom" Style="{StaticResource Rotulo}" Margin="0,6,0,0"
+                   Text="Idade e categoria são calculadas pelo sistema a partir da data de nascimento."/>
+
+        <DataGrid x:Name="GradeAnimais" MouseDoubleClick="Editar_Click">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Brinco" Binding="{Binding Brinco}" Width="100"/>
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" Width="80"/>
+                <DataGridTextColumn Header="Nascimento" Binding="{Binding Nascimento}" Width="110"/>
+                <DataGridTextColumn Header="Idade" Binding="{Binding Idade}" Width="70"/>
+                <DataGridTextColumn Header="Categoria" Binding="{Binding Categoria}" Width="110"/>
+                <DataGridTextColumn Header="Entrada" Binding="{Binding Entrada}" Width="110"/>
+                <DataGridTextColumn Header="Situação" Binding="{Binding Situacao}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

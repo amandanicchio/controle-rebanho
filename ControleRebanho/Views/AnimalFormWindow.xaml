@@ -1,0 +1,65 @@
+<Window x:Class="ControleRebanho.Views.AnimalFormWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Novo animal" Width="520" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <StackPanel Margin="20">
+        <TextBlock x:Name="TextoTitulo" Text="Novo animal" Style="{StaticResource TituloTela}"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="Brinco" Style="{StaticResource Rotulo}"/>
+                <TextBox x:Name="CampoBrinco" CharacterCasing="Upper"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Sexo" Style="{StaticResource Rotulo}"/>
+                <ComboBox x:Name="ComboSexo" SelectedIndex="1" SelectionChanged="DadosAlterados">
+                    <ComboBoxItem Content="Macho" Tag="MACHO"/>
+                    <ComboBoxItem Content="Fêmea" Tag="FEMEA"/>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Text="Entrada" Style="{StaticResource Rotulo}"/>
+        <StackPanel Orientation="Horizontal" Margin="0,4,0,10">
+            <RadioButton x:Name="OpcaoNascimento" Content="Nascimento" IsChecked="True" Margin="0,0,24,0"
+                         Checked="DadosAlterados"/>
+            <RadioButton x:Name="OpcaoCompra" Content="Compra" Checked="DadosAlterados"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="Data de nascimento" Style="{StaticResource Rotulo}"/>
+                <DatePicker x:Name="CampoNascimento" SelectedDateChanged="DadosAlterados"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Data de entrada" Style="{StaticResource Rotulo}"/>
+                <DatePicker x:Name="CampoEntrada"/>
+            </StackPanel>
+        </Grid>
+        <TextBlock Style="{StaticResource Rotulo}"
+                   Text="Se for nascimento, a data de entrada é a mesma do nascimento. Compra: animal que já chega grande."
+                   TextWrapping="Wrap"/>
+
+        <Border BorderBrush="#999" BorderThickness="1" Padding="10" Margin="0,12,0,0">
+            <TextBlock x:Name="TextoPrevia" Text="Informe a data de nascimento para ver idade e categoria."
+                       Foreground="#333"/>
+        </Border>
+
+        <TextBlock x:Name="TextoErro" Style="{StaticResource TextoErro}"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Cancelar" IsCancel="True"/>
+            <Button Content="Salvar" IsDefault="True" Click="Salvar_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

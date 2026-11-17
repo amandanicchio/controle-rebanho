@@ -1,0 +1,6 @@
+# Pastas geradas pelo Visual Studio na compilação (bin, obj, BuildHost...)
+bin/
+obj/
+.vs/
+*.user
+*.suo

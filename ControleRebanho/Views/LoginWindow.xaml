@@ -1,0 +1,19 @@
+<Window x:Class="ControleRebanho.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema de Controle de Rebanho" Width="380" SizeToContent="Height"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        FocusManager.FocusedElement="{Binding ElementName=CampoLogin}">
+    <StackPanel Margin="28">
+        <TextBlock Text="Entrar" Style="{StaticResource TituloTela}" HorizontalAlignment="Center"/>
+
+        <TextBlock Text="Login" Style="{StaticResource Rotulo}"/>
+        <TextBox x:Name="CampoLogin"/>
+
+        <TextBlock Text="Senha" Style="{StaticResource Rotulo}"/>
+        <PasswordBox x:Name="CampoSenha"/>
+
+        <Button Content="Entrar" IsDefault="True" Margin="0,8,0,0" Click="Entrar_Click"/>
+        <TextBlock x:Name="TextoErro" Style="{StaticResource TextoErro}"/>
+    </StackPanel>
+</Window>
