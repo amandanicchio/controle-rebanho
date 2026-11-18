@@ -54,7 +54,7 @@ Os valores interpolados viram parâmetros (sem SQL injection). O restante do sis
 Só a parte do pecuarista tem telas. Veterinária, catálogo de vacinas, vacinações e exames entram pelo
 seed (`Data/SeedData.cs`) para a **Ficha sanitária** ter o que mostrar.
 
-## Onde aplicamos SOLID
+## Onde apliquei SOLID
 
 | Princípio | Onde |
 |---|---|
@@ -64,7 +64,7 @@ seed (`Data/SeedData.cs`) para a **Ficha sanitária** ter o que mostrar.
 | **I** — Segregação de interfaces | `IRegistroSanitario` só tem vacinar e registrar exame; interfaces de repository pequenas |
 | **D** — Inversão de dependência | Controllers recebem `IAnimalRepository`, `IRelogio` etc. no construtor; só `FabricaControllers` conhece as classes concretas |
 
-## Onde aplicamos Clean Code
+## Onde apliquei Clean Code
 
 | Prática | Exemplo |
 |---|---|
